@@ -1,0 +1,113 @@
+<div class="container container-styles">
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-header bg bg-primary">
+                Login
+            </div>
+            <div class="card-body">
+                <!-- <form action="" #loginForm="ngForm"> -->
+                    <form action="">
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-3 col-3 col-form-label">
+                            
+                                User Name
+                        </label>
+                        <div class="col sm-9">
+                            <!-- <input type="text" class="form-control" name="username" [(ngModel)]="login.userName" #username="ngModel" required> -->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-3 col-4 col-form-label">Password</label>
+                        <div class="col-sm-9">
+                            <!-- <input type="password" class="form-control" name="password" #password="ngModel" [(ngModel)]="login.password" required> -->
+                        </div>
+                    </div>
+                    <!-- <div class="text-danger" *ngIf="!valid">Invalid credential...please try again...</div> -->
+                    <br>
+                    <div class="form-group row">
+                        <span class="col-sm-4 col-4">   </span>
+                        <!-- <div class="col-sm-3 col-3">
+                            <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!loginForm.form.valid">Login</button>
+                        </div> -->
+                        <span class="col-sm-5" style="top:8px">
+                        <a [routerLink]="['/welcome']" style="color: bisque;text-decoration: underline;">Cancel</a>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!submitted">
+    <form>
+      <label>User Name</label>
+      <input type="text" #username><br/><br/>
+      <label for="password">Password</label>
+      <input type="password" name="password" #password><br/>
+    </form>
+    <button (click)="onSubmit1(username.value,password.value)">Login</button>
+  </div>
+  <div *ngIf="submitted">
+    <div *ngIf="isAuthenticated; else failureMsg">
+      <h4> Welcome {{userName}} </h4>
+    </div>
+    <ng-template #failureMsg>
+      <h4> Invalid Login !!! Please try again...</h4>
+    </ng-template>
+    <button type="button" (click)="submitted=false">Back</button>
+  </div>
+  
+<!-- <button [class.btn-success]="applyClass" [class.btn]="applyClass">Click Me!!</button>
+<button [class]="applyClass ? 'btn btn-success mr-5' :'btn btn-primary mr-5'">Click Me!!</button>
+<button [style.background-color]="applyStyle ? 'orange' : 'greenyellow'" [style.color]="applyStyle ? 'black' : 'white'">Click Me!!</button>
+<button [style]="applyStyle ? styleObj1 : styleObj2">Click Me!!</button>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text text-warning">Whats your favourite course ?</h3>
+    <div class="form-group">
+        <label for="course">
+            <h5>Enter Course:</h5>
+        </label>
+        <input type="text" class="form-control" name="course" #course id="course">
+    </div> -->
+    <!-- Function call with parameters -->
+    <!-- <button class="btn btn-outline-warning" (click)="updateCourse(course.value)">
+        Update Course
+    </button> -->
+    <!-- Function call without parameters -->
+    <!-- <button class="btn btn-outline-danger ml-5" (click)="reset()">Reset</button>
+    <h5 class="message text-warning">
+        Favourite Course Name: {{courseName}}
+    </h5>
+</div>
+
+<input type="text" [(ngModel)]="name"> <br/>
+<div>Hello , {{ name }}</div> -->
+
+<!-- <table border="1px solid">
+    <tr *ngFor="let destination of destinations">
+      <td>{{destination.destinationId}}</td>
+      <td *ngIf="destination.charges!=300">{{destination.destinationName}}</td>
+      <td>{{destination.charges}}</td>
+    <tr>
+  </table>
+  
+  [Option B]
+  <table border="1px solid">
+    <tr *ngFor="let destination of destinations">
+      <td>{{destination.destinationId}}</td>
+      <td *ngIf="destination.charges==300">{{destination.charges}}</td>
+      <td *ngIf="destination.charges!=300">{{destination.destinationName}}</td>
+    <tr>
+  </table>
+  
+  [Option C]
+  <table border="1px solid">
+    <tr *ngFor="let destination of destinations">
+      <td>{{destination.destinationId}}</td>
+      <td *ngIf="destination.charges!=300; else noDest">{{destination.destinationName}}</td>
+      <ng-template #noDest>
+        <td>{{destination.charges}}</td>
+      </ng-template>
+      <td *ngIf="destination.charges!=300">{{destination.charges}}</td>
+    <tr>
+  </table> -->

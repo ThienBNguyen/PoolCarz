@@ -9,20 +9,57 @@
     </div>
 </nav>
 <div class="container border border-primary rounded p-0">
-    
-        <h5 class="bg-primary text-white p-2">Book a ride</h5>
-        <p class="display-5 p-2">Pool Carz is an online application which enables users to share rides with ithers. You can eighter book a ride or offer a ride. Did we mention that this app is advertisement free? To add on top of that its free of cost! So what are you waiting for?
-            <br>
+
+    <h5 class="bg-primary text-white p-2">Book a ride</h5>
+    <p class="display-5 p-2">Pool Carz is an online application which enables users to share rides with ithers. You can
+        eighter book a ride or offer a ride. Did we mention that this app is advertisement free? To add on top of that
+        its free of cost! So what are you waiting for?
+        <br>
         <span>Check out the rides available and start Pricing!!</span>
-        </p>
-<!-- 
-        <div class="d-flex flex-column-reverse justify-content-center"> -->
-            <div class="d-flex flex-column-reverse justify-content-center m-5"><button class="btn btn-primary text-white text-center  m-auto ">Show All Rides </button></div>
-         
-            <div class="d-flex flex-column-reverse justify-content-center mb-5">
-                <button class="btn btn-primary text-white  m-auto">
+    </p>
+
+    <div class="d-flex flex-column-reverse justify-content-center m-5"><button
+            class="btn btn-primary text-white text-center m-auto " (click)="submitted = !submitted"
+           >Show All Rides </button></div>
+    <div *ngIf="!submitted">
+        <div class="d-flex flex-column-reverse justify-content-center mb-5">
+            <button class="btn btn-primary text-white  m-auto">
+                Offer A Ride!
+            </button>
+        </div>
+    </div>
+    <div *ngIf="submitted">
+        <div>
+            <div class="text-center">
+                <button class="btn btn-primary m-1" type="button">To Gotham</button>
+                <button class="btn btn-primary m-1" type="button">from Gothem</button>
+                <button class="btn btn-primary m-1" type="button">Others</button>
+                <div class="p-3">
+                    <a href="#">Please select a ride!</a>
+                </div>
+            </div>
+            <table class="table text-center" border="1px white solid ">
+                <thead>
+                    <tr class="bg-primary text-light">
+                        <th class="">Start Point</th>
+                        <th class="">End Point</th>
+                        <th class="">Seat Available</th>
+                    </tr>
+                </thead>
+                <tbody class="text-primary">
+                    <tr *ngFor="let destination of destinations">
+                        <td>
+                            {{destination.start}}
+                        </td>
+                        <td>{{destination.end}}</td>
+                        <td>{{destination.available}}</td>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <button class="btn btn-primary text-center mb-3">
                     Offer A Ride!
                 </button>
             </div>
-        <!-- </div> -->
+        </div>
     </div>
+</div>
