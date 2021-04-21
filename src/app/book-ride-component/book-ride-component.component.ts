@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FilterPipe } from '../filter.pipe';
+import { SortPipe } from '../sort.pipe';
+import { Ride } from './ride';
+import { RIDES } from './rides';
+//import ride and rides
 @Component({
   selector: 'app-book-ride-component',
   templateUrl: './book-ride-component.component.html',
@@ -8,8 +12,8 @@ import { Component, OnInit } from '@angular/core';
 export class BookRideComponentComponent implements OnInit {
   
   submitted: boolean = false;
-
-
+filterByVar:any=FilterPipe
+rides=RIDES
   destinations: any[] = [
     { start: "vanrose Junction", end: "Gotham", available: 3 },
     { start: "PTP", end: "Gotham", available: 2 },

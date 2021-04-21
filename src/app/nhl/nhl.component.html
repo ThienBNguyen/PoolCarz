@@ -1,0 +1,7 @@
+<h3>Roster </h3>
+<ul *ngIf = "!errorMessage">
+    <li *ngFor="let player of roster">{{player | json}}</li>
+</ul>
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+</div>

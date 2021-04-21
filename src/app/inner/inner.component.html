@@ -1,0 +1,7 @@
+<div class="bg-primary"> 
+    <h5>var read from outer:{{innerVarAssignedFromOuter}}</h5>
+    <input type="text" #innerText>
+    <button (click)="sendOut.emit(innerText.value)" class="btn btn-warning">
+        send value to outer
+    </button>
+</div>

@@ -11,7 +11,7 @@
 <div class="container border border-primary rounded p-0">
 
     <h5 class="bg-primary text-white p-2">Book a ride</h5>
-    <p class="display-5 p-2">Pool Carz is an online application which enables users to share rides with ithers. You can
+    <p class="display-5 p-2" style="text-indent: 40px;">Pool Carz is an online application which enables users to share rides with ithers. You can
         eighter book a ride or offer a ride. Did we mention that this app is advertisement free? To add on top of that
         its free of cost! So what are you waiting for?
         <br>
@@ -31,9 +31,10 @@
     <div *ngIf="submitted">
         <div>
             <div class="text-center">
-                <button class="btn btn-primary m-1" type="button">To Gotham</button>
-                <button class="btn btn-primary m-1" type="button">from Gothem</button>
-                <button class="btn btn-primary m-1" type="button">Others</button>
+                <button (click) = "filterByVar='from'" class="btn btn-primary m-1" type="button">To Gotham</button>
+                <button (click) = "filterByVar='to'" class="btn btn-primary m-1" type="button">from Gothem</button>
+                <button (click) = "filterByVar='others'" class="btn btn-primary m-1" type="button">Others</button>
+                <button class="btn btn-primary m-1" type="button"  (click) = "filterByVar='all'">all</button>
                 <div class="p-3">
                     <a href="#">Please select a ride!</a>
                 </div>
@@ -47,12 +48,12 @@
                     </tr>
                 </thead>
                 <tbody class="text-primary">
-                    <tr *ngFor="let destination of destinations">
+                    <tr *ngFor="let ride of rides|filter:filterByVar">
                         <td>
-                            {{destination.start}}
+                            {{ride.pickup}}
                         </td>
-                        <td>{{destination.end}}</td>
-                        <td>{{destination.available}}</td>
+                        <td>{{ride.destination}}</td>
+                        <td>{{ride.seatsLeft}}</td>
                 </tbody>
             </table>
             <div class="text-center">
@@ -63,3 +64,4 @@
         </div>
     </div>
 </div>
+<!-- {{rides| json}} -->

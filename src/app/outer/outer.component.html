@@ -1,0 +1,13 @@
+<p>outer works!</p>
+<input type="text" #someText>
+<button (click)="valueToSendToInner=someText.value" class="btn btn-primary">
+    send to Innter
+</button>
+<br>
+<app-inner [innerVarAssignedFromOuter] = "valueToSendToInner" (sendOut)="valueReceivedFromInner = $event"></app-inner>
+<h5>
+    value transferred from Inner to Outer: {{valueReceivedFromInner}}
+</h5>
+<P>outer</P>
+
+
